@@ -13,7 +13,7 @@ code {
 }
 
 .title-text {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 900;
   font-family: monospace;
 }
@@ -25,4 +25,17 @@ code {
 .nav-item-custom:hover {
   background-color: rgba(255,255,255,.1);
   border-radius: 10px;
+}
+
+.nav-link {
+  color: ffc107;
+}
+
+.logo-back-20 {
+  left: -20px;
+  z-index: -1;
+}
+
+.logo-text-on-top {
+  z-index: 3;
 }

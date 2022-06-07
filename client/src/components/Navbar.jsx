@@ -1,45 +1,42 @@
 import React, { useState, useEffect } from 'react'
+import logo from '../logo.svg'
+
+let logoX
 
 const Navbar = () => {
+	const getPageTitle = () => {
+		return 'home'
+	}
+
 	const [pageTitle, setPageTitle] = useState('')
 
+	useEffect(() => {
+		setPageTitle(`jakeThompson.portfolio("${getPageTitle()}")`)
+	},[])
+
+	const moveImage = (width, logo) => {
+		return
+	}
+	
+	const logoAnimation = () => {
+		const width = document.getElementById('logo-link')
+		const movingLogo = document.getElementById('moving-logo')
+		if (movingLogo != null) {
+			setInterval(() => {
+				moveImage(width.offsetWidth, movingLogo)
+			}, 1500)
+		}
+	}
+	
+	logoAnimation()
+
 	return (
-		<nav className="navbar navbar-expand-lg bg-dark">
+		<nav className='navbar bg-dark navbar-expand-lg'>
 			<div className="container-fluid">
-				<div className="collapse navbar-collapse ml-auto justify-content-between" id="navbarSupportedContent">
-					<ul className="navbar-nav mb-2 mb-lg-0">
-						<li className="nav-item nav-item-custom">
-							<a className="nav-link text-warning nav-link-custom" aria-current="page" href="/">Home</a>
-						</li>
-						<li className="nav-item nav-item-custom">
-							<a className="nav-link text-warning" href="/about">About</a>
-						</li>
-						<li className="nav-item nav-item-custom">
-							<a className="nav-link text-warning" href="/projects">Projects</a>
-						</li>
-
-						<li className="nav-item dropdown">
-							<a className="nav-link dropdown-toggle text-warning" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Dropdown
-							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a className="dropdown-item" href="/">Action</a></li>
-								<li><a className="dropdown-item" href="/">Another action</a></li>
-								<li><hr className="dropdown-divider" /></li>
-								<li><a className="dropdown-item" href="/">Something else here</a></li>
-							</ul>
-						</li>
-
-					</ul>
-					<a className="navbar-brand text-info title-text" href="/">jakeThompson.portfolio("{ pageTitle }")</a>
-					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon"></span>
-					</button>
-					<form className="d-flex" role="search">
-						<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-						<button className="btn btn-outline-success" type="submit">Search</button>
-					</form>
-				</div>
+				<a id='logo-link' className="navbar-brand text-warning d-flex align-items-center position-relative logo-text-on-top title-text" href="/">
+					<img id='moving-logo' src={logo} alt="" width="50" height="50" className="position-absolute logo-back-20" />
+					{ pageTitle }
+				</a>
 			</div>
 		</nav>
 	)
