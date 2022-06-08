@@ -5,6 +5,9 @@ let logoX
 let direction = 'right'
 let rotation = 0
 
+const rotationAmount = 5
+const rotationOffset = 2
+
 const Navbar = () => {
 	const getPageTitle = () => {
 		return 'home'
@@ -19,28 +22,28 @@ const Navbar = () => {
 	const moveImage = (width, logo) => {
 		if (direction === 'right') {
 			if (logo.offsetLeft < width - 40) {
-				logo.style.left = (logo.offsetLeft + 3) + 'px'
+				logo.style.left = (logo.offsetLeft + rotationOffset) + 'px'
 			}
 			else {
 				direction = 'left'
-				logo.style.left = (logo.offsetLeft - 3) + 'px'
+				logo.style.left = (logo.offsetLeft - rotationOffset) + 'px'
 			}
+			rotation += rotationAmount
 		}
 		else if (direction === 'left') {
 			if (logo.offsetLeft > -20) {
-				logo.style.left = (logo.offsetLeft - 3) + 'px'
+				logo.style.left = (logo.offsetLeft - rotationOffset) + 'px'
 			}
 			else {
 				direction = 'right'
-				logo.style.left = (logo.offsetLeft + 3) + 'px'
+				logo.style.left = (logo.offsetLeft + rotationOffset) + 'px'
 			}
+			rotation -= rotationAmount
 		}
 		else {
 			console.log('Something bad has happened')
 		}
-		rotation += 10
 		logo.style.transform = `rotate(${rotation}deg)`
-		console.log(rotation)
 	}
 	
 	const logoAnimation = () => {
@@ -49,8 +52,7 @@ const Navbar = () => {
 		if (movingLogo != null) {
 			setInterval(() => {
 				moveImage(width.offsetWidth, movingLogo)
-			}, 50)
-			// moveImage(width.offsetWidth, movingLogo.offsetLeft)
+			}, 70)
 		}
 	}
 	
