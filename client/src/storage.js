@@ -7,6 +7,12 @@ export const schoolProjects = [
 	},
 	{
 		name: 'third'
+	},
+	{
+		name: 'fourth'
+	},
+	{
+		name: 'fifth'
 	}
 
 ]
