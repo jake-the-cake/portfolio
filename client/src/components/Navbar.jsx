@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg'
 
 let logoX
+let direction = 'right'
+let rotation = 0
 
 const Navbar = () => {
 	const getPageTitle = () => {
@@ -15,7 +17,30 @@ const Navbar = () => {
 	},[])
 
 	const moveImage = (width, logo) => {
-		return
+		if (direction === 'right') {
+			if (logo.offsetLeft < width - 40) {
+				logo.style.left = (logo.offsetLeft + 3) + 'px'
+			}
+			else {
+				direction = 'left'
+				logo.style.left = (logo.offsetLeft - 3) + 'px'
+			}
+		}
+		else if (direction === 'left') {
+			if (logo.offsetLeft > -20) {
+				logo.style.left = (logo.offsetLeft - 3) + 'px'
+			}
+			else {
+				direction = 'right'
+				logo.style.left = (logo.offsetLeft + 3) + 'px'
+			}
+		}
+		else {
+			console.log('Something bad has happened')
+		}
+		rotation += 10
+		logo.style.transform = `rotate(${rotation}deg)`
+		console.log(rotation)
 	}
 	
 	const logoAnimation = () => {
@@ -24,7 +49,8 @@ const Navbar = () => {
 		if (movingLogo != null) {
 			setInterval(() => {
 				moveImage(width.offsetWidth, movingLogo)
-			}, 1500)
+			}, 50)
+			// moveImage(width.offsetWidth, movingLogo.offsetLeft)
 		}
 	}
 	

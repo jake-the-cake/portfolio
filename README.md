@@ -1,1 +1,2 @@
-# portfolio
+# Jake Thompson
+## -> personal portfolio
