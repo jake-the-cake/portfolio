@@ -43,6 +43,7 @@ const MainDisplay = styled.div`
 
 const RightPreview = styled.div`
 	flex: 2;
+	background-color: red;
 `
 
 const SlideLeft = styled.button`
