@@ -1,6 +1,7 @@
 import './App.css';
 import styled from 'styled-components'
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ function App() {
   return (
     <Container>
       <Navbar />
-      <div>Content goes here</div>
+      <Home />
     </Container>
   );
 }

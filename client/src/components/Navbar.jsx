@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg'
 
-let logoX
 let direction = 'right'
 let rotation = 0
 
