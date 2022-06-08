@@ -25,6 +25,11 @@ const SliderWrapper = styled.div`
 	column-gap: 15px;
 	padding: 15px;
 	position: relative;
+
+	& > * {
+		display: flex;
+		justify-content: center;
+	}
 `
 
 const LeftPreview = styled.div`
