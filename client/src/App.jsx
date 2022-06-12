@@ -2,6 +2,8 @@ import './App.css';
 import styled from 'styled-components'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Projects from './pages/Projects';
 
 const Container = styled.div`
   display: flex;
@@ -14,8 +16,13 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      <Navbar />
-      <Home />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/portfolio/' element={<Home />} />
+          <Route path='/portfolio/projects' element={<Projects />} />
+        </Routes>
+      </BrowserRouter>
     </Container>
   );
 }
