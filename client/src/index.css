@@ -39,3 +39,10 @@ code {
 .logo-text-on-top {
   z-index: 3;
 }
+
+.logo-shadow {
+  text-shadow: 2px 2px 2px #333,
+                -2px 2px 2px #333,
+                -2px -2px 2px #333,
+                2px -2px 2px #333;
+}

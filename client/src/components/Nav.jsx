@@ -1,6 +1,9 @@
 import { SearchOutlined } from '@mui/icons-material'
 import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg'
+import { Link } from 'react-router-dom'
+
+console.log(Link.style)
 
 let direction = 'right'
 let rotation = 0
@@ -61,28 +64,28 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-success">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/portfolio">Navbar</a>
+    <Link to='/portfolio' className='text-decoration-none'><span className="navbar-brand text-warning">jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger">'home'</span>)</span></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/portfolio">Home</a>
+				<Link to='/portfolio'><span className="nav-link active" aria-current="page">Home</span></Link>
         </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<a className="nav-link dropdown-toggle"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Projects
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="#">School Work</a></li>
-            <li><a className="dropdown-item" href="#">Client Jobs</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="/portfolio/projects">View All</a></li>
+            <li><Link to='/portfolio'><span className="dropdown-item">School Work</span></Link></li>
+            <li><Link to='/portfolio'><span className="dropdown-item">Client Jobs</span></Link></li>
+            <li><hr className="dropdown-divider w-75" /></li>
+            <li><Link to='/portfolio/projects'><span className="dropdown-item">View All</span></Link></li>
           </ul>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Hire Me</a>
+				<Link to='/portfolio'><span className="nav-link" href="#">Hire Me</span></Link>
         </li>
       </ul>
       <form className="d-flex" role="search">
