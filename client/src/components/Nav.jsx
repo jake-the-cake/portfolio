@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg'
 import { Link } from 'react-router-dom'
 
-console.log(Link.style)
-
 let direction = 'right'
 let rotation = 0
 
@@ -19,7 +17,10 @@ const Navbar = () => {
 	const [pageTitle, setPageTitle] = useState('')
 
 	useEffect(() => {
-		setPageTitle(`jakeThompson.portfolio("${getPageTitle()}")`)
+		setPageTitle(
+		<span className="navbar-brand text-warning">
+		jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger">'{getPageTitle()}'</span>)</span>
+		)
 	},[])
 
 	const moveImage = (width, logo) => {
@@ -61,10 +62,18 @@ const Navbar = () => {
 	
 	logoAnimation()
 
+	// remove underline from links
+	document.querySelectorAll('a').forEach(link => {
+		link.style.textDecoration = 'none'
+	})
+
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-success">
   <div className="container-fluid">
-    <Link to='/portfolio' className='text-decoration-none'><span className="navbar-brand text-warning">jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger">'home'</span>)</span></Link>
+    <Link to='/portfolio'>
+	 			{ pageTitle }
+
+		</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -80,7 +89,7 @@ const Navbar = () => {
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><Link to='/portfolio'><span className="dropdown-item">School Work</span></Link></li>
             <li><Link to='/portfolio'><span className="dropdown-item">Client Jobs</span></Link></li>
-            <li><hr className="dropdown-divider w-75" /></li>
+            <li><hr className="dropdown-divider w-75 mx-auto" /></li>
             <li><Link to='/portfolio/projects'><span className="dropdown-item">View All</span></Link></li>
           </ul>
         </li>
