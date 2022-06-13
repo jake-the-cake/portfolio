@@ -6,7 +6,11 @@ const Container = styled.div`
 	padding: 20px;
 	display: flex;
 	justify-content: center;
-	column-gap: 20px;
+	gap: 20px;
+
+	@media only screen and (max-width: 900px) {
+		flex-direction: column;
+	}
 `
 
 const BioInfo = styled.div`
@@ -16,10 +20,14 @@ const BioInfo = styled.div`
 	display: flex;
 	gap: 20px;
 	flex: 1;
+
+	@media only screen and (max-width: 550px) {
+		flex-direction: column;
+	}
 `
 
 const LeftBioInfo = styled.div`
-	max-width: 250px;
+	min-width: 250px;
 `
 
 const BioPhoto = styled.div`
@@ -28,6 +36,8 @@ const BioPhoto = styled.div`
 	align-items: end;
 	width: 180px;
 	height: 180px;
+	border: 1px solid black;
+	box-shadow: 0px 4px 10px #333;
 	border-radius: 50%;
 	background-image: url('/portfolio/images/bio-pic.jpg');
 	background-size: 190px;
@@ -44,7 +54,8 @@ const BioInfoText = styled.div`
 const BioStat = styled.div`
 	&.bio-stat-name {
 		font-size: 16px;
-		margin-bottom: 100px;
+		margin-bottom: 95px;
+		font-weight: 700;
 	}
 
 	&.bio-sub-stat {
@@ -52,7 +63,16 @@ const BioStat = styled.div`
 	}
 
 	&.bio-lang {
-		font-size: 12px;
+		font-size: 14px;
+	}
+
+	&.shift-right {
+		margin-right -20px;
+	}
+
+	&.z-10 {
+		position: relative;
+		z-index: 10;
 	}
 `
 
@@ -67,6 +87,8 @@ const BioStatLine = styled.div`
 		border: 1px solid rgba(0,0,0,.2);
 		padding: 10px;
 		margin: auto;
+		margin-top: -1px;
+		box-shadow: 0px 2px 12px #333;
 	}
 `
 
@@ -91,23 +113,23 @@ const Bio = () => {
 			<BioInfo>
 				<LeftBioInfo>
 					<BioPhoto>						
-						<BioStat className="bio-stat-name text-center btn btn-success px-0 w-100 py-0">
-							Jason "Jake" Thompson
+						<BioStat className="bio-stat-name text-center btn btn-success px-1 py-0 mt-2 shift-right">
+							Jake Thompson
 						</BioStat>
-						<BioStat className="bio-sub-stat btn btn-danger py-0 px-1 mb-1">37 yrs old</BioStat>
-						<BioStat className="bio-sub-stat btn btn-warning py-0 px-1">Ocean Township, NJ</BioStat>		
+						<BioStat className="bio-sub-stat btn btn-danger py-0 px-1 mb-1 shift-right">37 years old</BioStat>
+						<BioStat className="bio-sub-stat btn btn-warning py-0 px-1 shift-right">Ocean Township, NJ</BioStat>		
 					</BioPhoto>
 					<BioInfoText>
-						<BioStat className='d-flex justify-content-between mt-2 px-1 bg-info w-100 bio-lang'><Computer style={{width:'18px',height:'18px'}} />Full Stack Web Developer</BioStat>
+						<BioStat className='d-flex justify-content-between mt-2 align-items-center px-1 bg-info w-100 bio-lang z-10'><Computer style={{width:'22px',height:'20px'}} />Full Stack Web Developer</BioStat>
 						<BioStatLine className='language-box'>
-							<BioStatIcon image='/portfolio/images/js.svg' />
 							<BioStatIcon image='/portfolio/images/html.svg' />
 							<BioStatIcon image='/portfolio/images/css.svg' />
+							<BioStatIcon image='/portfolio/images/js.svg' />
+							<BioStatIcon image='/portfolio/images/bs.svg' />
 							<BioStatIcon image='/portfolio/images/mongo.svg' />
 							<BioStatIcon image='/portfolio/images/exp.svg' />
 							<BioStatIcon image='/portfolio/images/react.svg' />
 							<BioStatIcon image='/portfolio/images/node.svg' />
-							<BioStatIcon image='/portfolio/images/py.svg' />
 						</BioStatLine>
 					</BioInfoText>
 				</LeftBioInfo>
