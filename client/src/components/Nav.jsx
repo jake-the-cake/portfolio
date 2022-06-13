@@ -18,7 +18,7 @@ const Navbar = () => {
 
 	useEffect(() => {
 		setPageTitle(
-		<span className="navbar-brand text-warning">
+		<span className="navbar-brand text-warning position-relative z-20">
 		jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger">'{getPageTitle()}'</span>)</span>
 		)
 	},[])
@@ -62,6 +62,8 @@ const Navbar = () => {
 	
 	logoAnimation()
 
+	console.log(logo)
+
 	// remove underline from links
 	document.querySelectorAll('a').forEach(link => {
 		link.style.textDecoration = 'none'
@@ -70,8 +72,9 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-success">
   <div className="container-fluid">
-    <Link to='/portfolio'>
-	 			{ pageTitle }
+    <Link to='/portfolio' id="logo-link">
+	 		{ pageTitle }
+			<img src={logo} alt="Logo" className="position-absolute logo-back-20 z-10 lift-10" id="moving-logo" width="50px" height="50px" />
 
 		</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

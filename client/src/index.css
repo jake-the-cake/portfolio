@@ -46,3 +46,15 @@ code {
                 -2px -2px 2px #333,
                 2px -2px 2px #333;
 }
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.lift-10 {
+  margin-top: -10px;
+}
