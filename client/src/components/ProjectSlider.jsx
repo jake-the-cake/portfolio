@@ -33,16 +33,36 @@ const SliderWrapper = styled.div`
 `
 
 const LeftPreview = styled.div`
-	flex: 2;
+	margin: auto 0px auto 30px;
+	
+	img {
+		width: 20vw;
+		height: 20vw;
+	}
 `
 
 const MainDisplay = styled.div`
-	flex: 5;
 	background-color: rgba(100,100,100,.1);
+	position: relative;
+
+	img {
+		height: 40vw;
+		width: 40vw;
+	}
+
+	@media only screen and (max-width: 550px) {
+		margin: auto -30px;
+		z-index: 10;
+	}
 `
 
 const RightPreview = styled.div`
-	flex: 2;
+	margin: auto 30px auto 0px;
+
+	img {
+		width: 20vw;
+		height: 20vw;
+	}
 `
 
 const SlideLeft = styled.button`
@@ -99,7 +119,10 @@ const ProjectSlider = () => {
 
 	const displayPreview = (index) => {
 		if (currentlyDisplayed.length > 0) {
-			return currentlyDisplayed[index].name
+			return (
+				<img src={currentlyDisplayed[index].screenShot} />
+			)
+			// return currentlyDisplayed[index].name
 		}
 	}
 
