@@ -32,8 +32,8 @@ code {
 }
 
 .logo-back-20 {
-  left: -20px;
-  z-index: -1;
+  left: 10px;
+  z-index: 10;
 }
 
 .logo-text-on-top {
