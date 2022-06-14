@@ -1,10 +1,10 @@
 import './App.css';
 import styled from 'styled-components'
-import Navbar from './components/Navbar';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Projects from './pages/Projects';
+import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path='/portfolio/' element={<Home />} />
-          <Route path='/portfolio/projects' element={<Projects />} />
+          <Route path='/portfolio/' element={<Home title='home' />} />
+          <Route path='/portfolio/projects' element={<Projects title='projects' />} />
         </Routes>
       </BrowserRouter>
     </Container>

@@ -1,4 +1,4 @@
-import { SearchOutlined } from '@mui/icons-material'
+import { Search } from '@mui/icons-material'
 import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg'
 import { Link } from 'react-router-dom'
@@ -16,16 +16,17 @@ const Navbar = () => {
 
 	const [pageTitle, setPageTitle] = useState('')
 
+	const currentPath = document.location.pathname
 	useEffect(() => {
 		setPageTitle(
-		<span className="navbar-brand text-warning position-relative z-20">
-		jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger">'{getPageTitle()}'</span>)</span>
+		<span className="navbar-brand text-warning position-relative logo-text-on-top">
+		jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger" id="dynamic-title">'home'</span>)</span>
 		)
 	},[])
 
 	const moveImage = (width, logo) => {
 		if (direction === 'right') {
-			if (logo.offsetLeft < width - 40) {
+			if (logo.offsetLeft < width - 45) {
 				logo.style.left = (logo.offsetLeft + rotationOffset) + 'px'
 			}
 			else {
@@ -35,7 +36,7 @@ const Navbar = () => {
 			rotation += rotationAmount
 		}
 		else if (direction === 'left') {
-			if (logo.offsetLeft > -20) {
+			if (logo.offsetLeft > -5) {
 				logo.style.left = (logo.offsetLeft - rotationOffset) + 'px'
 			}
 			else {
@@ -56,13 +57,11 @@ const Navbar = () => {
 		if (movingLogo != null) {
 			setInterval(() => {
 				moveImage(width.offsetWidth, movingLogo)
-			}, 70)
+			}, 110)
 		}
 	}
 	
 	logoAnimation()
-
-	console.log(logo)
 
 	// remove underline from links
 	document.querySelectorAll('a').forEach(link => {
@@ -70,7 +69,7 @@ const Navbar = () => {
 	})
 
 	return (
-		<nav className="navbar navbar-expand-md navbar-dark bg-success">
+		<nav className="navbar navbar-expand-md navbar-dark bg-dark">
   <div className="container-fluid">
     <Link to='/portfolio' id="logo-link">
 	 		{ pageTitle }
@@ -100,9 +99,9 @@ const Navbar = () => {
 				<Link to='/portfolio'><span className="nav-link" href="#">Hire Me</span></Link>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-warning" type="submit">Search</button>
+      <form className="d-flex search-form" role="search">
+        <input className="form-control search-bar" type="search" placeholder="Search" aria-label="Search" />
+        <button className="btn btn-warning search-button" type="submit"><Search style={{width:'22px',height:'22px'}} /></button>
       </form>
     </div>
   </div>
