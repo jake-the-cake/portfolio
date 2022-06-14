@@ -25,16 +25,23 @@ const SliderWrapper = styled.div`
 	column-gap: 15px;
 	padding: 15px;
 	position: relative;
+	width: fit-content;
+	max-width: 95vw;
 
 	& > * {
 		display: flex;
 		justify-content: center;
 	}
+
+	@media only screen and (max-width: 700px) {
+		column-gap: 10px;
+	}
 `
 
 const LeftPreview = styled.div`
-	margin: auto 0px auto 30px;
-	
+	margin: auto 0px auto 20px;
+	max-width: 25vw;
+
 	img {
 		width: 20vw;
 		height: 20vw;
@@ -57,7 +64,8 @@ const MainDisplay = styled.div`
 `
 
 const RightPreview = styled.div`
-	margin: auto 30px auto 0px;
+	margin: auto 20px auto 0px;
+	max-width: 25vw;
 
 	img {
 		width: 20vw;

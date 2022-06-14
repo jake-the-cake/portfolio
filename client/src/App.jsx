@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Projects from './pages/Projects';
 import { useEffect, useState } from 'react';
+import HireMe from './pages/HireMe';
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/portfolio/' element={<Home title='home' />} />
           <Route path='/portfolio/projects' element={<Projects title='projects' />} />
+          <Route path='/portfolio/hire-me' element={<HireMe title='hire-me' />} />
         </Routes>
       </BrowserRouter>
     </Container>

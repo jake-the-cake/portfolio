@@ -96,7 +96,7 @@ const Navbar = () => {
           </ul>
         </li>
         <li className="nav-item">
-				<Link to='/portfolio'><span className="nav-link" href="#">Hire Me</span></Link>
+				<Link to='/portfolio/hire-me'><span className="nav-link">Hire Me</span></Link>
         </li>
       </ul>
       <form className="d-flex search-form" role="search">

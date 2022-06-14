@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import ProjectSlider from '../components/ProjectSlider'
 import SetTitles from '../scripts/SetTitles'
 
 const Projects = (props) => {
 	SetTitles(props.title)
 
 	return (
-		<div>Projects</div>
+		<div>
+			<ProjectSlider />
+		</div>
 	)
 }
 
