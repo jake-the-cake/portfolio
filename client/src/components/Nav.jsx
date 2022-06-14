@@ -19,7 +19,7 @@ const Navbar = () => {
 	const currentPath = document.location.pathname
 	useEffect(() => {
 		setPageTitle(
-		<span className="navbar-brand text-warning position-relative z-20">
+		<span className="navbar-brand text-warning position-relative logo-text-on-top">
 		jakeThompson.<span className="text-info">portfolio</span>(<span className="text-danger" id="dynamic-title">'home'</span>)</span>
 		)
 	},[])
@@ -99,9 +99,9 @@ const Navbar = () => {
 				<Link to='/portfolio'><span className="nav-link" href="#">Hire Me</span></Link>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-warning" type="submit"><Search /></button>
+      <form className="d-flex search-form" role="search">
+        <input className="form-control search-bar" type="search" placeholder="Search" aria-label="Search" />
+        <button className="btn btn-warning search-button" type="submit"><Search style={{width:'22px',height:'22px'}} /></button>
       </form>
     </div>
   </div>
