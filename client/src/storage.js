@@ -10,8 +10,8 @@ export const schoolProjects = [
 		screenShot: '/portfolio/images/eyes.png'
 	},
 	{
-		name: 'third',
-		slug: 'bus-tracker',
+		name: 'Pacmen Factory',
+		slug: 'pacmen',
 		screenShot: '/portfolio/images/tracker.png'
 	}
 ]
