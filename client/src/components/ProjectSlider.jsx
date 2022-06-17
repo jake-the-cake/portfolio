@@ -144,9 +144,22 @@ const ProjectSlider = () => {
 		}
 	}
 
+	const openWindow = (modal, link) => {
+		const windowFrame = document.createElement('iframe')
+		windowFrame.src = link
+		modal.appendChild(windowFrame)
+	}
+
 	const handleButton = (link) => {
 		const previewWindow = document.createElement('div')
 		previewWindow.classList.add('preview-start')
+		setTimeout(()=>{previewWindow.classList.toggle('fade-in')},10)
+		openWindow(previewWindow, currentlyDisplayed[1][link])
+		previewWindow.addEventListener('click', () => {
+			previewWindow.classList.toggle('fade-in')
+			previewWindow.classList.toggle('fade-out')
+			setTimeout(()=>{previewWindow.remove()},200)
+		})
 		document.body.appendChild(previewWindow)
 	}
 

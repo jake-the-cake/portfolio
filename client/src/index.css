@@ -65,13 +65,21 @@ code {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  opacity: 100%;
+  background-color: rgba(0,0,0,0);
   left: 0;
   top: 0;
-  animation: forwards .7s loadpreview;
+  transition: all .7s linear;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes loadpreview {
-  100% {
-    background-color: rgba(200,200,200,.6);
-  }
+.fade-in {
+  background-color: rgba(0,0,0,.3);
+}
+
+.fade-out {
+  opacity: 0%;
 }
