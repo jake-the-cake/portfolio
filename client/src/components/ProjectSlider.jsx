@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { ArrowLeft, ArrowRight } from '@mui/icons-material'
+import { ArrowLeft, ArrowRight, GitHub, Web } from '@mui/icons-material'
 import { schoolProjects } from '../storage'
 
 const Container = styled.div`
@@ -61,6 +61,17 @@ const MainDisplay = styled.div`
 		margin: auto -30px;
 		z-index: 10;
 	}
+`
+
+const MainOverlay = styled.div`
+	position: absolute;
+	bottom: 20px;
+	display: flex;
+	gap: 20px;
+`
+
+const OverlayButton = styled.button`
+	border: none;
 `
 
 const RightPreview = styled.div`
@@ -130,8 +141,13 @@ const ProjectSlider = () => {
 			return (
 				<img src={currentlyDisplayed[index].screenShot} />
 			)
-			// return currentlyDisplayed[index].name
 		}
+	}
+
+	const handleButton = (link) => {
+		const previewWindow = document.createElement('div')
+		previewWindow.classList.add('preview-start')
+		document.body.appendChild(previewWindow)
 	}
 
 	useEffect(() => {
@@ -143,7 +159,13 @@ const ProjectSlider = () => {
 			<SliderTitle>Browse my archived school projects...</SliderTitle>
 			<SliderWrapper>
 				<LeftPreview>{displayPreview(0)}</LeftPreview>
-				<MainDisplay>{displayPreview(1)}</MainDisplay>
+				<MainDisplay>
+					{displayPreview(1)}
+					<MainOverlay>
+						<OverlayButton onClick={()=>handleButton('git')}><GitHub />View Git</OverlayButton>
+						<OverlayButton onClick={()=>handleButton('address')}><Web />View Page</OverlayButton>
+					</MainOverlay>
+				</MainDisplay>
 				<RightPreview>{displayPreview(2)}</RightPreview>
 				<SlideLeft onClick={()=>handleClick('left')}><ArrowLeft /></SlideLeft>
 				<SlideRight onClick={() => handleClick('right')}><ArrowRight /></SlideRight>

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 code {
@@ -58,4 +59,19 @@ code {
 .search-bar {
   width: 150px;
   font-size: 14px;
+}
+
+.preview-start {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  animation: forwards .7s loadpreview;
+}
+
+@keyframes loadpreview {
+  100% {
+    background-color: rgba(200,200,200,.6);
+  }
 }
