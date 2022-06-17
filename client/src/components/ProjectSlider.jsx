@@ -132,6 +132,8 @@ const ProjectSlider = () => {
 				sliderArray.pop()
 				sliderArray.unshift(movingItem)
 				break
+			default:
+				console.log('something')
 		}
 		setCurrentlyDisplayed(sliderArray)
 	}	
@@ -139,7 +141,7 @@ const ProjectSlider = () => {
 	const displayPreview = (index) => {
 		if (currentlyDisplayed.length > 0) {
 			return (
-				<img src={currentlyDisplayed[index].screenShot} />
+				<img src={currentlyDisplayed[index].screenShot} alt="" />
 			)
 		}
 	}
@@ -147,20 +149,36 @@ const ProjectSlider = () => {
 	const openWindow = (modal, link) => {
 		const windowFrame = document.createElement('iframe')
 		windowFrame.src = link
+		windowFrame.classList.add('demo-frame')
+		setTimeout(()=>{windowFrame.classList.toggle('demo-fade-in')},30)
 		modal.appendChild(windowFrame)
 	}
 
 	const handleButton = (link) => {
-		const previewWindow = document.createElement('div')
-		previewWindow.classList.add('preview-start')
-		setTimeout(()=>{previewWindow.classList.toggle('fade-in')},10)
-		openWindow(previewWindow, currentlyDisplayed[1][link])
-		previewWindow.addEventListener('click', () => {
-			previewWindow.classList.toggle('fade-in')
-			previewWindow.classList.toggle('fade-out')
-			setTimeout(()=>{previewWindow.remove()},200)
-		})
-		document.body.appendChild(previewWindow)
+		if (link === 'address') {
+			// create and open modal
+			const previewWindow = document.createElement('div')
+			previewWindow.classList.add('preview-start')
+			setTimeout(()=>{
+				previewWindow.classList.toggle('fade-in')
+			},10)
+			// open iframe
+			openWindow(previewWindow, currentlyDisplayed[1][link])
+			// click on gray to close modal
+			previewWindow.addEventListener('click', () => {
+				previewWindow.classList.toggle('fade-in')
+				previewWindow.classList.toggle('fade-out')
+				setTimeout(()=>{
+					previewWindow.remove()
+				},200)
+			})
+			// inject modal div into html
+			document.body.appendChild(previewWindow)
+		}
+		else if (link === 'git') {
+			window.open(currentlyDisplayed[1][link], "_blank");
+		}
+
 	}
 
 	useEffect(() => {

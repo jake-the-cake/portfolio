@@ -77,9 +77,24 @@ code {
 }
 
 .fade-in {
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.5);
 }
 
 .fade-out {
   opacity: 0%;
+}
+
+.demo-frame {
+  width: 90vw;
+  height: 90vh;
+  transition: opacity .7s linear;
+  opacity: 0%;
+}
+
+.demo-frame {
+  opacity: 0%;
+}
+
+.demo-fade-in {
+  opacity: 100%;
 }
