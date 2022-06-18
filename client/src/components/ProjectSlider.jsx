@@ -40,13 +40,22 @@ const SliderWrapper = styled.div`
 `
 
 const LeftPreview = styled.div`
-	margin: auto 0px auto 20px;
+	margin: auto 0px;
 	max-width: 25vw;
 
 	img {
 		width: 20vw;
 		height: 20vw;
 	}
+`
+
+const MainOverlay = styled.div`
+	position: absolute;
+	bottom: 20px;
+	display: flex;
+	gap: 20px;
+	opacity: 0%;
+	transition: opactiy .5s linear;
 `
 
 const MainDisplay = styled.div`
@@ -58,17 +67,14 @@ const MainDisplay = styled.div`
 		width: 40vw;
 	}
 
+	&:hover ${MainOverlay} {
+		opacity: 100%;
+	}
+
 	@media only screen and (max-width: 550px) {
 		margin: auto -30px;
 		z-index: 10;
 	}
-`
-
-const MainOverlay = styled.div`
-	position: absolute;
-	bottom: 20px;
-	display: flex;
-	gap: 20px;
 `
 
 const OverlayButton = styled.button`
@@ -76,7 +82,7 @@ const OverlayButton = styled.button`
 `
 
 const RightPreview = styled.div`
-	margin: auto 20px auto 0px;
+	margin: auto 0px;
 	max-width: 25vw;
 
 	img {
@@ -85,28 +91,31 @@ const RightPreview = styled.div`
 	}
 `
 
-const SlideLeft = styled.button`
-	background-color: rgba(0,222,0,.3);
-	opacity: .6;
-	color: #090;
+const arrowStyles = `
+	background-color: rgba(100,255,100,.6);
+	opacity: .8;
+	color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 3px 2px 0px #444;
 	border: none;
-	outlineL none;
+	height: 30px;
+	width: 30px;
+	outline: none;
 	border-radius: 50%;
 	position: absolute;
-	left: 10px;
 	top: calc(50% - 15px);
 `
 
+const SlideLeft = styled.button`
+	left: 10px;
+	${arrowStyles}
+`
+
 const SlideRight = styled.button`
-	background-color: rgba(0,222,0,.3);
-	opacity: .6;
-	border: none;
-	color: #090;
-	outlineL none;
-	border-radius: 50%;
-	position: absolute;
 	right: 10px;
-	top: calc(50% - 15px);
+	${arrowStyles}
 `
 
 
