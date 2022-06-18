@@ -16,7 +16,7 @@ export const schoolProjects = [
 	{
 		name: 'Pacmen Factory',
 		slug: 'pacmen',
-		screenShot: '/portfolio/images/tracker.png',
+		screenShot: '/portfolio/images/pacmen.png',
 		git: 'https://github.com/jake-the-cake/school-work/tree/main/portfolio/pacmen',
 		address: 'https://jake-the-cake.github.io/school-work/portfolio/pacmen/index.html'
 	}
