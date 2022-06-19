@@ -15,8 +15,8 @@ const Container = styled.div`
 const BioInfo = styled.div`
 	background-color: rgba(255,255,255,.9);
 	border-radius: 5px;
-	padding: 10px;
 	display: flex;
+	margin: 20px auto;
 	gap: 50px;
 	flex: 1;
 
@@ -27,6 +27,10 @@ const BioInfo = styled.div`
 
 const LeftBioInfo = styled.div`
 	min-width: 300px;
+	
+	@media only screen and (max-width: 450px) {
+		min-width: auto;
+	}
 `
 
 const BioPhoto = styled.div`
@@ -104,6 +108,11 @@ const RightBioInfo = styled.div`
 	background-color: rgba(0,255,0,.1);
 	box-shadow: 0px 2px 12px #333;
 	padding: 15px;
+
+
+	@media only screen and (max-width: 450px) {
+		min-width: auto;
+	}
 `
 
 const BioVideo = styled.div`

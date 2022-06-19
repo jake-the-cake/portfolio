@@ -10,13 +10,17 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	row-gap: 15px;
+
+	@media only screen and (max-width: 450px) {
+		padding: 0px;
+	}
 `
 
 const SliderTitle = styled.div`
 	display: flex;
 	font-style: italic;
 	justify-content: center;
-	font-size: 12px;
+	font-size: .9em;
 `
 
 const SliderWrapper = styled.div`
@@ -26,7 +30,6 @@ const SliderWrapper = styled.div`
 	column-gap: 15px;
 	padding: 15px;
 	position: relative;
-	width: fit-content;
 	max-width: 1100px;
 
 	& > * {
@@ -36,7 +39,7 @@ const SliderWrapper = styled.div`
 
 	@media only screen and (max-width: 700px) {
 		column-gap: 10px;
-		max-width: 95vw;
+		width: calc(100vw - 30px);
 	}
 `
 
@@ -70,6 +73,7 @@ const MainDisplay = styled.div`
 		height: 500px;
 		max-height: 40vw;
 		max-width: 40vw;
+		box-shadow: 0px 4px 10px #333;
 	}
 
 	&:hover ${MainOverlay} {
@@ -210,8 +214,8 @@ const ProjectSlider = () => {
 				<MainDisplay>
 					{displayPreview(1)}
 					<MainOverlay>
-						<OverlayButton onClick={()=>handleButton('git')}><GitHub />View Git</OverlayButton>
-						<OverlayButton onClick={()=>handleButton('address')}><Web />View Page</OverlayButton>
+						<OverlayButton onClick={()=>handleButton('git')}><GitHub /><span className='view-text'>View </span>Git</OverlayButton>
+						<OverlayButton onClick={()=>handleButton('address')}><Web /><span className='view-text'>View </span>Page</OverlayButton>
 					</MainOverlay>
 				</MainDisplay>
 				<RightPreview>{displayPreview(2)}</RightPreview>

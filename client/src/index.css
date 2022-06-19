@@ -104,3 +104,8 @@ code {
   grid-template-columns: 1fr 1fr;
 }
 
+@media only screen and (max-width: 500px) {
+  .view-text {
+    display: none;
+  }
+}
