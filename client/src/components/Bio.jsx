@@ -5,12 +5,11 @@ import styled from 'styled-components'
 const Container = styled.div`
 	padding: 20px;
 	display: flex;
+	max-width: 1100px;
+	margin: 0px auto;
 	justify-content: center;
 	gap: 20px;
-
-	@media only screen and (max-width: 900px) {
-		flex-direction: column;
-	}
+	flex-direction: column;
 `
 
 const BioInfo = styled.div`
@@ -18,16 +17,16 @@ const BioInfo = styled.div`
 	border-radius: 5px;
 	padding: 10px;
 	display: flex;
-	gap: 20px;
+	gap: 50px;
 	flex: 1;
 
-	@media only screen and (max-width: 550px) {
+	@media only screen and (max-width: 650px) {
 		flex-direction: column;
 	}
 `
 
 const LeftBioInfo = styled.div`
-	min-width: 250px;
+	min-width: 300px;
 `
 
 const BioPhoto = styled.div`
@@ -42,7 +41,7 @@ const BioPhoto = styled.div`
 	background-image: url('/portfolio/images/bio-pic.jpg');
 	background-size: 190px;
 	background-position: bottom left;
-	margin: 0px auto 10px;
+	margin: 0px auto 30px;
 `
 
 const BioInfoText = styled.div`
@@ -63,7 +62,7 @@ const BioStat = styled.div`
 	}
 
 	&.bio-lang {
-		font-size: 14px;
+		font-size: 18px;
 	}
 
 	&.shift-right {
@@ -99,7 +98,13 @@ const BioStatIcon = styled.div`
 	background-size: contain;
 `
 
-const RightBioInfo = styled.div``
+const RightBioInfo = styled.div`
+	min-width: 350px;
+	font-size: .8em;
+	background-color: rgba(0,255,0,.1);
+	box-shadow: 0px 2px 12px #333;
+	padding: 15px;
+`
 
 const BioVideo = styled.div`
 	background-color: rgba(170,170,170,.6);
@@ -108,6 +113,19 @@ const BioVideo = styled.div`
 `
 
 const Bio = () => {
+	const timedGreeting = () => {
+		const timestamp = new Date()
+		if (timestamp >= 0 && timestamp.getHours() < 12) {
+			return 'Good morning!'
+		}
+		else if (timestamp >= 12 && timestamp < 6) {
+			return 'Good afternoon!'
+		}
+		else {
+			return 'Good evening!'
+		}
+	}
+
 	return (
 		<Container>
 			<BioInfo>
@@ -120,7 +138,7 @@ const Bio = () => {
 						<BioStat className="bio-sub-stat btn btn-warning py-0 px-1 shift-right">Ocean Township, NJ</BioStat>		
 					</BioPhoto>
 					<BioInfoText>
-						<BioStat className='d-flex justify-content-between mt-2 align-items-center px-1 bg-info w-100 bio-lang z-10'><Computer style={{width:'22px',height:'20px'}} />Full Stack Web Developer</BioStat>
+						<BioStat className='d-flex justify-content-between mt-2 align-items-center px-1 bg-info w-100 bio-lang z-10'><Computer style={{width:'26px',height:'23px'}} />Full Stack Web Developer</BioStat>
 						<BioStatLine className='language-box'>
 							<BioStatIcon image='/portfolio/images/html.svg' />
 							<BioStatIcon image='/portfolio/images/css.svg' />
@@ -134,7 +152,18 @@ const Bio = () => {
 					</BioInfoText>
 				</LeftBioInfo>
 				<RightBioInfo>
-					Written bio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum tenetur minus nostrum fugit quos ad, labore alias quaerat. Repellat eos eveniet ullam cum itaque consequuntur quasi et expedita libero dolores?
+					<p>
+						{timedGreeting()} Thank you for visiting. I'm Jake Thompson, a student of Full Stack MERN Development, currently enrolled with MIT xPro.
+					</p>
+					<p>
+						I first started playing around with HTML as a teenager back in the late 90s, and instantly fell in love. As I grew older, I continued to teach myself more in the background, while entering the workforce, which I also fell in love with. I worked my way up to management at a few of companies over the years, before I was sidelined by a torn biceps muscle. During the time off, I rediscovered my passion for coding, and have been hard at work to polish off my knowledge, and continue to learn more.
+					</p>
+					<p>
+						Thanks again for taking the time to take a look at my work, which should hopefully do the rest of the required talking for me.
+					</p>
+					<div className='contact-table'>
+						Links
+					</div>
 				</RightBioInfo>
 			</BioInfo>
 			<BioVideo>video</BioVideo>

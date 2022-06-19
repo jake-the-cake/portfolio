@@ -29,7 +29,7 @@ code {
 }
 
 .nav-link {
-  color: ffc107;
+  color: #ffc107;
 }
 
 .logo-back-20 {
@@ -98,3 +98,9 @@ code {
 .demo-fade-in {
   opacity: 100%;
 }
+
+.contact-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+

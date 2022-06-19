@@ -27,7 +27,7 @@ const SliderWrapper = styled.div`
 	padding: 15px;
 	position: relative;
 	width: fit-content;
-	max-width: 95vw;
+	max-width: 1100px;
 
 	& > * {
 		display: flex;
@@ -36,6 +36,7 @@ const SliderWrapper = styled.div`
 
 	@media only screen and (max-width: 700px) {
 		column-gap: 10px;
+		max-width: 95vw;
 	}
 `
 
@@ -44,8 +45,10 @@ const LeftPreview = styled.div`
 	max-width: 25vw;
 
 	img {
-		width: 20vw;
-		height: 20vw;
+		width: 250px;
+		height: 250px;
+		max-height: 20vw;
+		max-width: 20vw;
 	}
 `
 
@@ -63,8 +66,10 @@ const MainDisplay = styled.div`
 	position: relative;
 
 	img {
-		height: 40vw;
-		width: 40vw;
+		width: 500px;
+		height: 500px;
+		max-height: 40vw;
+		max-width: 40vw;
 	}
 
 	&:hover ${MainOverlay} {
@@ -86,8 +91,10 @@ const RightPreview = styled.div`
 	max-width: 25vw;
 
 	img {
-		width: 20vw;
-		height: 20vw;
+		width: 250px;
+		height: 250px;
+		max-height: 20vw;
+		max-width: 20vw;
 	}
 `
 
