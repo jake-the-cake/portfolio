@@ -104,8 +104,8 @@ const BioStatIcon = styled.div`
 
 const RightBioInfo = styled.div`
 	min-width: 350px;
-	font-size: .8em;
-	background-color: rgba(0,255,0,.1);
+	font-size: .9em;
+	background-color: rgba(200,255,200,.2);
 	box-shadow: 0px 2px 12px #333;
 	padding: 15px;
 
