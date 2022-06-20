@@ -123,11 +123,11 @@ const BioVideo = styled.div`
 
 const Bio = () => {
 	const timedGreeting = () => {
-		const timestamp = new Date()
-		if (timestamp >= 0 && timestamp.getHours() < 12) {
+		const timestamp = new Date().getHours()
+		if (timestamp >= 0 && timestamp < 12) {
 			return 'Good morning!'
 		}
-		else if (timestamp >= 12 && timestamp < 6) {
+		else if (timestamp >= 12 && timestamp < 18) {
 			return 'Good afternoon!'
 		}
 		else {
