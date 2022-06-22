@@ -16,7 +16,7 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Container>
+    <Container className='bg-light'>
       <BrowserRouter>
         <Nav />
         <Routes>

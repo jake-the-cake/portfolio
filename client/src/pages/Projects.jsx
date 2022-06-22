@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import SetTitles from '../scripts/SetTitles'
 import { myProjects, schoolProjects } from '../storage'
 
@@ -50,6 +50,16 @@ const Projects = (props) => {
 	
 	return (
 		<div className='project-list'>
+		{ props.filter &&
+			<div className="page-header">
+				<div className="page-title"><Link className='text-dark text-decoration-none hover-title' to='/portfolio/projects'>Projects</Link></div>{props.filter !== 'all'  && 
+				<>
+				<div className="page-title-divider"></div>
+				<div className="page-subtitle text-muted">{props.filter[0].toUpperCase() + props.filter.slice(1)}</div>
+				</>
+				}
+			</div>
+		}
 			{
 				projectList.map((project) => {
 					return (
