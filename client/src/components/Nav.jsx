@@ -61,7 +61,7 @@ const Navbar = () => {
 		}
 	}
 	
-	//logoAnimation()
+	logoAnimation()
 
 	// remove underline from links
 	document.querySelectorAll('a').forEach(link => {
