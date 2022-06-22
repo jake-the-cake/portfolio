@@ -21,3 +21,11 @@ export const schoolProjects = [
 		address: 'https://jake-the-cake.github.io/school-work/portfolio/pacmen/index.html'
 	}
 ]
+
+export const clientProjects = [
+	{
+		name: 'Cash Counter',
+		slug: 'cash-reg',
+		address: 'https://jake-the-cake.github.io/cash-reg/index.html'
+	}
+]

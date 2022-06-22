@@ -109,3 +109,20 @@ code {
     display: none;
   }
 }
+
+.project-list {
+  margin: 30px auto 0px;
+  display: grid;
+  grid-template-columns: repeat(1, 90vw);
+  gap: 30px;
+}
+
+.project-card {
+  background-color: rgba(150,255,150,.2);
+  height: 300px;
+  display: grid;
+}
+
+.project-card-image {
+  padding: 20px;
+}

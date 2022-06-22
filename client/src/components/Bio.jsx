@@ -105,7 +105,11 @@ const BioStatIcon = styled.div`
 const RightBioInfo = styled.div`
 	min-width: 350px;
 	font-size: .9em;
+<<<<<<< HEAD
 	background-color: rgba(0,255,0,.1);
+=======
+	background-color: rgba(200,255,200,.2);
+>>>>>>> b76cfb9027fd965fcd39ed51b3db5fcb2b38bdd7
 	box-shadow: 0px 2px 12px #333;
 	padding: 15px;
 
@@ -123,11 +127,11 @@ const BioVideo = styled.div`
 
 const Bio = () => {
 	const timedGreeting = () => {
-		const timestamp = new Date()
-		if (timestamp >= 0 && timestamp.getHours() < 12) {
+		const timestamp = new Date().getHours()
+		if (timestamp >= 0 && timestamp < 12) {
 			return 'Good morning!'
 		}
-		else if (timestamp >= 12 && timestamp < 6) {
+		else if (timestamp >= 12 && timestamp < 18) {
 			return 'Good afternoon!'
 		}
 		else {
