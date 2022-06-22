@@ -61,11 +61,35 @@ const Navbar = () => {
 		}
 	}
 	
-	logoAnimation()
+	//logoAnimation()
 
 	// remove underline from links
 	document.querySelectorAll('a').forEach(link => {
 		link.style.textDecoration = 'none'
+	})
+
+	const toggleNavLinks = (active) => {
+		const inactive = [0,1,2].filter(i=>i !== active)
+		const elements = document.getElementsByClassName('nav-link')
+		for (const index of inactive) {
+			elements[index].classList.remove('active')
+		}
+		elements[active].classList.add('active')
+	}
+
+	window.addEventListener('load', () => {
+		const path = document.location.pathname.replace('/portfolio/','').replace('-','').split('/')
+		const setPath = () => {
+			let finalPath
+			path[0] === '' ? finalPath = 'home' : finalPath = path[0]
+			return finalPath
+		}
+		const links = {
+			home: 0,
+			projects: 1,
+			hireme: 2
+		}
+		toggleNavLinks(links[setPath()])
 	})
 
 	return (
@@ -82,22 +106,22 @@ const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-						<Link to='/portfolio'><span className="nav-link active" aria-current="page">Home</span></Link>
+						<Link to='/portfolio'><span className="nav-link" aria-current="page" onClick={()=>{toggleNavLinks(0)}}>Home</span></Link>
 						</li>
 						<li className="nav-item dropdown">
 						<a className="nav-link dropdown-toggle"id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Projects
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><Link to='/portfolio/projects/school'><span className="dropdown-item">School Work</span></Link></li>
-								<li><Link to='/portfolio/projects/client'><span className="dropdown-item">Client Jobs</span></Link></li>
-								<li><Link to='/portfolio/projects/freeware'><span className="dropdown-item">Freeware</span></Link></li>
+								<li><Link to='/portfolio/projects/school'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>School Work</span></Link></li>
+								<li><Link to='/portfolio/projects/client'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>Client Jobs</span></Link></li>
+								<li><Link to='/portfolio/projects/freeware'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>Freeware</span></Link></li>
 								<li><hr className="dropdown-divider w-75 mx-auto" /></li>
 								<li><Link to='/portfolio/projects'><span className="dropdown-item">View All</span></Link></li>
 							</ul>
 						</li>
 						<li className="nav-item">
-						<Link to='/portfolio/hire-me'><span className="nav-link">Hire Me</span></Link>
+						<Link to='/portfolio/hire-me'><span className="nav-link" onClick={()=>{toggleNavLinks(2)}}>Hire Me</span></Link>
 						</li>
 					</ul>
 					<form className="d-flex search-form" role="search">
