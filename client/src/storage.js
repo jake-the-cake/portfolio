@@ -22,10 +22,22 @@ export const schoolProjects = [
 	}
 ]
 
-export const clientProjects = [
+export const myProjects = [
 	{
 		name: 'Cash Counter',
 		slug: 'cash-reg',
-		address: 'https://jake-the-cake.github.io/cash-reg/index.html'
-	}
+		address: 'https://jake-the-cake.github.io/cash-reg/index.html',
+		filters: [
+			'freeware'
+		]
+	},
+	{
+		name: 'Price Calculator',
+		slug: 'price-calc',
+		address: 'https://jake-the-cake.github.io/price-calc/index.html',
+		filters: [
+			'client',
+			'freeware'
+		]
+	},
 ]

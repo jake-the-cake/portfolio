@@ -89,8 +89,9 @@ const Navbar = () => {
 								Projects
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><Link to='/portfolio'><span className="dropdown-item">School Work</span></Link></li>
-								<li><Link to='/portfolio'><span className="dropdown-item">Client Jobs</span></Link></li>
+								<li><Link to='/portfolio/projects/school'><span className="dropdown-item">School Work</span></Link></li>
+								<li><Link to='/portfolio/projects/client'><span className="dropdown-item">Client Jobs</span></Link></li>
+								<li><Link to='/portfolio/projects/freeware'><span className="dropdown-item">Freeware</span></Link></li>
 								<li><hr className="dropdown-divider w-75 mx-auto" /></li>
 								<li><Link to='/portfolio/projects'><span className="dropdown-item">View All</span></Link></li>
 							</ul>
