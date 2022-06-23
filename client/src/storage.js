@@ -29,6 +29,11 @@ export const myProjects = [
 		address: 'https://jake-the-cake.github.io/cash-reg/index.html',
 		filters: [
 			'freeware'
+		],
+		description: [
+			'Line 1',
+			'Line 2',
+			'Line 3'
 		]
 	},
 	{

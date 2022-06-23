@@ -1,15 +1,25 @@
+import { GitHub, Web } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import SetTitles from '../scripts/SetTitles'
 import { myProjects, schoolProjects } from '../storage'
 
+
+	
+
+
 const Projects = (props) => {
 	SetTitles(props.title)
 
-	// const projectList = [...clientProjects, ...schoolProjects]
-
 	const [projectList, setProjectList] = useState([])
 	let currentProjects = []
+
+	const formatDescription = (lines) => {
+		lines.forEach((line) => {
+			console.log('there is data here')
+		})
+		return 'description being formatted...'
+	}
 
 	const filterDisplay = () => {
 		const filterFunction = (filterBy) => {
@@ -47,7 +57,7 @@ const Projects = (props) => {
 			: console.log('no filter')
 		setProjectList(currentProjects)
 	}, [props.filter])
-	
+
 	return (
 		<div className='project-list'>
 		{ props.filter &&
@@ -64,9 +74,14 @@ const Projects = (props) => {
 				projectList.map((project) => {
 					return (
 						<div className='project-card' key={project.slug}>
-							<div className="project-card-image">{project.screenShot ? <img src={project.screenShot} alt="" width='260px' height='260px' /> : 'no image'}</div>
-							{project.name}
-						</div>
+							<div className="project-card-image">{project.screenShot ? <img src={project.screenShot} alt="" /> : 'no image'}</div>
+								<div className="project-card-title">{project.name}</div>
+								<div className="project-card-body">{project.description ? formatDescription(project.description) : 'no description'}</div>
+								<div className="project-card-links">
+									<button><GitHub />View Git</button>
+									<button><Web />View Page</button>
+								</div>
+							</div>
 					)
 				})
 			}
