@@ -145,6 +145,10 @@ code {
   text-align: center;
 }
 
+.project-card-line {
+  text-align: start;
+}
+
 .project-card-links {
   display: grid;
   padding: 0px 20px;

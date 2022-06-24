@@ -1,6 +1,7 @@
 import { GitHub, Web } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { handleButton } from '../scripts/projectModal'
 import SetTitles from '../scripts/SetTitles'
 import { myProjects, schoolProjects } from '../storage'
 
@@ -15,10 +16,17 @@ const Projects = (props) => {
 	let currentProjects = []
 
 	const formatDescription = (lines) => {
-		lines.forEach((line) => {
-			console.log('there is data here')
-		})
-		return 'description being formatted...'
+		return (
+			<>
+				{
+					lines.map((line,idx ) => {
+						return (
+							<p key={idx} className="project-card-line"><span className='me-3'></span>{line}</p>
+						)
+					})
+				}
+			</>
+		)
 	}
 
 	const filterDisplay = () => {
@@ -45,7 +53,7 @@ const Projects = (props) => {
 				currentProjects = filterFunction('freeware')
 				break
 			default:
-				currentProjects = [...myProjects, ...schoolProjects]
+				currentProjects = [...schoolProjects, ...myProjects]
 				break
 		}
 	}
@@ -74,12 +82,12 @@ const Projects = (props) => {
 				projectList.map((project) => {
 					return (
 						<div className='project-card' key={project.slug}>
-							<div className="project-card-image">{project.screenShot ? <img src={project.screenShot} alt="" /> : 'no image'}</div>
+							<div className="project-card-image">{project.screenShot ? <img src={project.screenShot} alt="" /> : <img src='/portfolio/images/comingsoon.png' alt="" />}</div>
 								<div className="project-card-title">{project.name}</div>
 								<div className="project-card-body">{project.description ? formatDescription(project.description) : 'no description'}</div>
 								<div className="project-card-links">
-									<button><GitHub />View Git</button>
-									<button><Web />View Page</button>
+									<button onClick={()=>handleButton('git',project)}><GitHub />View Git</button>
+									<button onClick={()=>handleButton('address',project)}><Web />View Page</button>
 								</div>
 							</div>
 					)
