@@ -86,8 +86,8 @@ const Projects = (props) => {
 								<div className="project-card-title">{project.name}</div>
 								<div className="project-card-body">{project.description ? formatDescription(project.description) : 'no description'}</div>
 								<div className="project-card-links">
-									<button onClick={()=>handleButton('git',project)}><GitHub />View Git</button>
-									<button onClick={()=>handleButton('address',project)}><Web />View Page</button>
+									<button className='btn btn-info' onClick={()=>handleButton('git',project)}><GitHub />View Git</button>
+									<button className='btn btn-primary' onClick={()=>handleButton('address',project)}><Web />Demo Page</button>
 								</div>
 							</div>
 					)
