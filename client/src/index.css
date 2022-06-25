@@ -196,6 +196,40 @@ code {
   color: #c55 !important;
 }
 
+
+/* temp */
+.hire-container {
+  width: 50vw;
+  margin: auto;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,.5);
+  background-color: white;
+  box-shadow: 0px 5px 10px 1px rgba(0,0,0,.5);
+}
+
+.hire-container h1 {
+  font-style: italic;
+}
+
+.hire-container p a {
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.hire-container p {
+  text-align: center;
+  font-size: .8rem;
+}
+
+
+
+
 /* responsive */
 @media only screen and (max-width:600px) {
   .view-text {
