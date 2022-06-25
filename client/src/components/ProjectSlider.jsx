@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { ArrowLeft, ArrowRight, GitHub, Web } from '@mui/icons-material'
-import { schoolProjects } from '../storage'
+import { myProjects, schoolProjects } from '../storage'
+import { handleButton } from '../scripts/projectModal'
 
 const Container = styled.div`
-	background-color: white;
-	padding: 10px 20px;
+	background-color: rgba(200,255,200,.2);
+	padding: 25px 0px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	row-gap: 15px;
+	row-gap: 25px;
 
 	@media only screen and (max-width: 450px) {
 		padding: 0px;
@@ -20,13 +21,15 @@ const SliderTitle = styled.div`
 	display: flex;
 	font-style: italic;
 	justify-content: center;
-	font-size: .9em;
+	font-size: 1.1em;
 `
 
 const SliderWrapper = styled.div`
 	display: flex;
+	background-color: white;
 	border: 1px solid rgba(0,0,0,.3);
 	justify-content: space-between;
+	border-radius: 25px;
 	column-gap: 15px;
 	padding: 15px;
 	position: relative;
@@ -62,6 +65,14 @@ const MainOverlay = styled.div`
 	gap: 20px;
 	opacity: 0%;
 	transition: opactiy .5s linear;
+	overflow: hidden;
+	
+	@media only screen and (max-width: 550px) {
+		opacity: 100%;
+		bottom: 0px;
+		width: 100%;
+		height: 100%;
+	}
 `
 
 const MainDisplay = styled.div`
@@ -87,7 +98,23 @@ const MainDisplay = styled.div`
 `
 
 const OverlayButton = styled.button`
-	border: none;
+	@media only screen and (max-width: 550px) {
+		position: absolute;
+		left: ${props => props.loc === 'left' ? '-30%' : 'auto'};
+		right: ${props => props.loc === 'right' ? '-30%' : 'auto'};
+		bottom: -25%;
+		width: 60%;
+		height: 60%;
+		border-radius: 50%;
+		padding-bottom: 20%;
+		padding-top: 5%;
+		padding-left: ${props => props.loc === 'left' ? '32%' : 'auto'};
+		padding-right: ${props => props.loc === 'right' ? '32%' : 'auto'};
+		font-size: .8em;
+		display: flex;
+		flex-direction: column;
+		align-items: ${props => props.loc === 'left' ? 'start' : 'end'};
+	}
 `
 
 const RightPreview = styled.div`
@@ -109,34 +136,48 @@ const arrowStyles = `
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 0px 3px 2px 0px #444;
+	box-shadow: 0px 3px 5px -1px #444;
 	border: none;
-	height: 30px;
-	width: 30px;
+	height: 40px;
+	width: 40px;
 	outline: none;
 	border-radius: 50%;
 	position: absolute;
 	top: calc(50% - 15px);
+
+	@media only screen and (max-width: 450px) {
+		display: none;
+	}
 `
 
 const SlideLeft = styled.button`
-	left: 10px;
+	left: -20px;
 	${arrowStyles}
 `
 
 const SlideRight = styled.button`
-	right: 10px;
+	right: -20px;
 	${arrowStyles}
 `
 
-
-const ProjectSlider = () => {
+export const ProjectSlider = (props) => {
+	/*
+		::: INIT
+		--> Set state of slider to incoming array
+	*/
 	const [currentlyDisplayed, setCurrentlyDisplayed] = useState([])
-	const sliderArray = []
-	schoolProjects.forEach((project) => {
-		sliderArray.push(project)
-		})
-		
+	const sliderArray = [...props.arr]
+	useEffect(() => {
+		setCurrentlyDisplayed(sliderArray)
+	}, [])	
+	
+	/*
+		::: ACTION
+		--> Copy the current display array into the manipulation array
+		--> Copy first (left) or last (right) item into temp variable, then remove that item
+		--> Add temp variable to beginning (right) or end (left)
+		--> Set state of slider to manipulated array
+	*/
 	const handleClick = (direction) => {
 		let movingItem
 		sliderArray.forEach((item, index) => {
@@ -159,6 +200,11 @@ const ProjectSlider = () => {
 		setCurrentlyDisplayed(sliderArray)
 	}	
 
+	/*
+		::: RENDER
+		--> Take in index of current display array
+		--> Return IMG tag with corresponding thumbnail
+	*/
 	const displayPreview = (index) => {
 		if (currentlyDisplayed.length > 0) {
 			return (
@@ -167,63 +213,22 @@ const ProjectSlider = () => {
 		}
 	}
 
-	const openWindow = (modal, link) => {
-		const windowFrame = document.createElement('iframe')
-		windowFrame.src = link
-		windowFrame.classList.add('demo-frame')
-		setTimeout(()=>{windowFrame.classList.toggle('demo-fade-in')},30)
-		modal.appendChild(windowFrame)
-	}
-
-	const handleButton = (link) => {
-		if (link === 'address') {
-			// create and open modal
-			const previewWindow = document.createElement('div')
-			previewWindow.classList.add('preview-start')
-			setTimeout(()=>{
-				previewWindow.classList.toggle('fade-in')
-			},10)
-			// open iframe
-			openWindow(previewWindow, currentlyDisplayed[1][link])
-			// click on gray to close modal
-			previewWindow.addEventListener('click', () => {
-				previewWindow.classList.toggle('fade-in')
-				previewWindow.classList.toggle('fade-out')
-				setTimeout(()=>{
-					previewWindow.remove()
-				},200)
-			})
-			// inject modal div into html
-			document.body.appendChild(previewWindow)
-		}
-		else if (link === 'git') {
-			window.open(currentlyDisplayed[1][link], "_blank");
-		}
-
-	}
-
-	useEffect(() => {
-		setCurrentlyDisplayed(sliderArray)
-	}, [])
-
 	return (
 		<Container>
 			<SliderTitle>Browse my archived school projects...</SliderTitle>
 			<SliderWrapper>
-				<LeftPreview>{displayPreview(0)}</LeftPreview>
+				<LeftPreview onClick={() => handleClick('right')}>{displayPreview(0)}</LeftPreview>
 				<MainDisplay>
 					{displayPreview(1)}
 					<MainOverlay>
-						<OverlayButton onClick={()=>handleButton('git')}><GitHub /><span className='view-text'>View </span>Git</OverlayButton>
-						<OverlayButton onClick={()=>handleButton('address')}><Web /><span className='view-text'>View </span>Page</OverlayButton>
+						<OverlayButton loc="left"  className='btn btn-info' onClick={()=>handleButton('git', currentlyDisplayed[1])}><GitHub /><span className='view-text'>View </span>Git</OverlayButton>
+						<OverlayButton loc="right" className='btn btn-primary' onClick={()=>handleButton('address', currentlyDisplayed[1])}><Web /><span className='view-text'>Demo </span>Page</OverlayButton>
 					</MainOverlay>
 				</MainDisplay>
-				<RightPreview>{displayPreview(2)}</RightPreview>
+				<RightPreview onClick={()=>handleClick('left')}>{displayPreview(2)}</RightPreview>
 				<SlideLeft onClick={()=>handleClick('left')}><ArrowLeft /></SlideLeft>
 				<SlideRight onClick={() => handleClick('right')}><ArrowRight /></SlideRight>
 			</SliderWrapper>
 		</Container>
 	)
 }
-
-export default ProjectSlider
