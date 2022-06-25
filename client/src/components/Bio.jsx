@@ -1,4 +1,4 @@
-import { Computer } from '@mui/icons-material'
+import { Computer, GitHub, LinkedIn, RssFeed, Twitter, YouTube } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -13,7 +13,6 @@ const Container = styled.div`
 `
 
 const BioInfo = styled.div`
-	background-color: rgba(255,255,255,.9);
 	border-radius: 5px;
 	display: flex;
 	margin: 20px auto;
@@ -26,7 +25,7 @@ const BioInfo = styled.div`
 `
 
 const LeftBioInfo = styled.div`
-	min-width: 300px;
+	min-width: 260px;
 	
 	@media only screen and (max-width: 450px) {
 		min-width: auto;
@@ -40,18 +39,21 @@ const BioPhoto = styled.div`
 	width: 180px;
 	height: 180px;
 	border: 1px solid black;
-	box-shadow: 0px 4px 10px #333;
+	// box-shadow: 0px 4px 10px #333;
+	box-shadow: 0px 4px 8px -2px #333;
 	border-radius: 50%;
 	background-image: url('/portfolio/images/bio-pic.jpg');
 	background-size: 190px;
 	background-position: bottom left;
-	margin: 0px auto 30px;
+	margin: 0px auto 50px;
 `
 
 const BioInfoText = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	box-shadow: 0px 4px 8px -2px #333;
+	background-color: white;
 `
 
 const BioStat = styled.div`
@@ -91,7 +93,6 @@ const BioStatLine = styled.div`
 		padding: 10px;
 		margin: auto;
 		margin-top: -1px;
-		box-shadow: 0px 2px 12px #333;
 	}
 `
 
@@ -106,9 +107,8 @@ const RightBioInfo = styled.div`
 	min-width: 350px;
 	font-size: .9em;
 	background-color: rgba(200,255,200,.2);
-	box-shadow: 0px 2px 12px #333;
+	box-shadow: 0px 4px 8px -2px #333;
 	padding: 15px;
-
 
 	@media only screen and (max-width: 450px) {
 		min-width: auto;
@@ -122,6 +122,8 @@ const BioVideo = styled.div`
 `
 
 const Bio = () => {
+	const ICON_SIZE = {height:'40px',width:'40px'}
+
 	const timedGreeting = () => {
 		const timestamp = new Date().getHours()
 		if (timestamp >= 0 && timestamp < 12) {
@@ -147,7 +149,7 @@ const Bio = () => {
 						<BioStat className="bio-sub-stat btn btn-warning py-0 px-1 shift-right">Ocean Township, NJ</BioStat>		
 					</BioPhoto>
 					<BioInfoText>
-						<BioStat className='d-flex justify-content-between mt-2 align-items-center px-1 bg-info w-100 bio-lang z-10'><Computer style={{width:'26px',height:'23px'}} />Full Stack Web Developer</BioStat>
+						<BioStat className='d-flex justify-content-between align-items-center px-2 py-1 bg-info w-100 bio-lang z-10'><Computer style={{width:'26px',height:'23px'}} />Full Stack Web Developer</BioStat>
 						<BioStatLine className='language-box'>
 							<BioStatIcon image='/portfolio/images/html.svg' />
 							<BioStatIcon image='/portfolio/images/css.svg' />
@@ -171,7 +173,20 @@ const Bio = () => {
 						Thanks again for taking the time to take a look at my work, which should hopefully do the rest of the required talking for me.
 					</p>
 					<div className='contact-table'>
-						Links
+						<div className="git-title"><GitHub />View My Repos</div>
+						<a className='git-link' href="https://github.com/jake-the-cake" target="_blank">jake-the-cake</a>
+						<div className="follow-title"><RssFeed />Follow me</div>
+						<div className="follow-icons">
+							<a href='#'>
+								<LinkedIn style={{color:'royalblue', ...ICON_SIZE}} />
+							</a>
+							<a href="#">
+								<Twitter style={{color:'lightblue', ...ICON_SIZE}} />
+							</a>
+							<a href="#">
+								<YouTube style={{color:'red', ...ICON_SIZE}} />
+							</a>
+						</div>
 					</div>
 				</RightBioInfo>
 			</BioInfo>

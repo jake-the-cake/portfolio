@@ -102,6 +102,55 @@ code {
 .contact-table {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: auto;
+  column-gap: 20px;
+  margin-top: 25px;
+}
+
+.git-title {
+  grid-column: 1 / 2;
+  background-color: #f94;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 900;
+}
+
+.git-link {
+  grid-column: 1 / 2;
+  font-size: 1.1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #f94;
+}
+
+.follow-title {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: indianred;
+  color: white;
+  font-weight: 900;
+}
+
+.follow-icons {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid indianred;
+  padding: 10px;
+  background-color: white;
 }
 
 .project-list {
@@ -195,6 +244,8 @@ code {
 .hover-title:hover {
   color: #c55 !important;
 }
+
+
 
 
 /* temp */
