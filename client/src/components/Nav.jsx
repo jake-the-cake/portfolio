@@ -117,7 +117,7 @@ const Navbar = () => {
 								<li><Link to='/portfolio/projects/client'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>Client Jobs</span></Link></li>
 								<li><Link to='/portfolio/projects/freeware'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>Freeware</span></Link></li>
 								<li><hr className="dropdown-divider w-75 mx-auto" /></li>
-								<li><Link to='/portfolio/projects'><span className="dropdown-item">View All</span></Link></li>
+								<li><Link to='/portfolio/projects'><span className="dropdown-item" onClick={()=>{toggleNavLinks(1)}}>View All</span></Link></li>
 							</ul>
 						</li>
 						<li className="nav-item">

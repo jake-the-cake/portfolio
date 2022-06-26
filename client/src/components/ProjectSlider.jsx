@@ -5,7 +5,8 @@ import { myProjects, schoolProjects } from '../storage'
 import { handleButton } from '../scripts/projectModal'
 
 const Container = styled.div`
-	background-color: rgba(200,255,200,.2);
+	background-color: #212529;
+	color: #f8f9fa;
 	padding: 25px 0px;
 	display: flex;
 	flex-direction: column;
@@ -27,9 +28,8 @@ const SliderTitle = styled.div`
 const SliderWrapper = styled.div`
 	display: flex;
 	background-color: white;
-	border: 1px solid rgba(0,0,0,.3);
+	box-shadow: 0px 4px 8px -2px #f8f9fa;
 	justify-content: space-between;
-	border-radius: 25px;
 	column-gap: 15px;
 	padding: 15px;
 	position: relative;

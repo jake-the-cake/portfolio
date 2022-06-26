@@ -5,10 +5,6 @@ import { handleButton } from '../scripts/projectModal'
 import SetTitles from '../scripts/SetTitles'
 import { myProjects, schoolProjects } from '../storage'
 
-
-	
-
-
 const Projects = (props) => {
 	SetTitles(props.title)
 
@@ -16,17 +12,11 @@ const Projects = (props) => {
 	let currentProjects = []
 
 	const formatDescription = (lines) => {
-		return (
-			<>
-				{
-					lines.map((line,idx ) => {
+		return lines.map((line,idx ) => {
 						return (
 							<p key={idx} className="project-card-line"><span className='me-3'></span>{line}</p>
 						)
 					})
-				}
-			</>
-		)
 	}
 
 	const filterDisplay = () => {
