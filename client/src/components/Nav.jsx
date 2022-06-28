@@ -94,7 +94,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-dark">
-			<div className="container-fluid">
+			<div className="container-fluid px-none">
 				<Link to='/portfolio' id="logo-link" onClick={()=>{toggleNavLinks(0)}}>
 					{ pageTitle }
 					<img src={logo} alt="Logo" className="position-absolute logo-back-20 z-10 lift-10" id="moving-logo" width="50px" height="50px" />
