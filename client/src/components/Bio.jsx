@@ -1,4 +1,4 @@
-import { Computer, GitHub, LinkedIn, RssFeed, Twitter, YouTube } from '@mui/icons-material'
+import { Computer, Email, GitHub, LinkedIn, RssFeed, Twitter, YouTube } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -39,7 +39,6 @@ const BioPhoto = styled.div`
 	width: 180px;
 	height: 180px;
 	border: 1px solid black;
-	// box-shadow: 0px 4px 10px #333;
 	box-shadow: 0px 4px 8px -2px #333;
 	border-radius: 50%;
 	background-image: url('/portfolio/images/bio-pic.jpg');
@@ -106,9 +105,22 @@ const BioStatIcon = styled.div`
 const RightBioInfo = styled.div`
 	min-width: 350px;
 	font-size: .9em;
-	background-color: rgba(200,255,200,.2);
 	box-shadow: 0px 4px 8px -2px #333;
 	padding: 15px;
+
+	p:last-child {
+		text-align: center;
+		margin-bottom: 0px;
+	}
+
+	p a {
+		text-decoration: none;
+		font-weight: 900;
+	}
+
+	p a:hover {
+		color: red;
+	}
 
 	@media only screen and (max-width: 450px) {
 		min-width: auto;
@@ -162,35 +174,37 @@ const Bio = () => {
 						</BioStatLine>
 					</BioInfoText>
 				</LeftBioInfo>
-				<RightBioInfo>
+				<RightBioInfo className='bg-dark text-light'>
 					<p>
-						{timedGreeting()} Thank you for visiting. I'm Jake Thompson, a student of Full Stack MERN Development, currently enrolled with MIT xPro.
+						<span className='me-3'></span>{timedGreeting()} Thank you for taking the time to visit my web development portfolio. I'm Jake Thompson, a student of Full Stack MERN Development, currently enrolled with MIT xPro.
 					</p>
 					<p>
-						I first started playing around with HTML as a teenager back in the late 90s, and instantly fell in love. As I grew older, I continued to teach myself more in the background, while entering the workforce, which I also fell in love with. I worked my way up to management at a few of companies over the years, before I was sidelined by a torn biceps muscle. During the time off, I rediscovered my passion for coding, and have been hard at work to polish off my knowledge, and continue to learn more.
+						<span className='me-3'></span>I first started playing around with HTML as a teenager back in the late 90s, and instantly fell in love. As I grew older, I continued to teach myself more in the background, while entering the workforce, which I also fell in love with. I worked my way up to management at a few of companies over the years, before I was sidelined by a torn biceps muscle. During the time off, I rediscovered my passion for coding, and have been hard at work to polish off my knowledge, and continue to learn more.
 					</p>
 					<p>
-						Thanks again for taking the time to take a look at my work, which should hopefully do the rest of the required talking for me.
+						<span className='me-3'></span>Thanks again for taking the time to take a look at my work, which should hopefully do the rest of the required talking for me.
 					</p>
 					<div className='contact-table'>
 						<div className="git-title"><GitHub />View My Repos</div>
 						<a className='git-link' href="https://github.com/jake-the-cake" target="_blank">jake-the-cake</a>
 						<div className="follow-title"><RssFeed />Follow me</div>
 						<div className="follow-icons">
-							<a href='#'>
+							<a href='https://www.linkedin.com/in/ask-jake-thompson/' target="_blank">
 								<LinkedIn style={{color:'royalblue', ...ICON_SIZE}} />
 							</a>
-							<a href="#">
+							<a href="https://twitter.com/papajakedev" target="_blank">
 								<Twitter style={{color:'lightblue', ...ICON_SIZE}} />
 							</a>
-							<a href="#">
+							<a href="https://www.youtube.com/channel/UCc1bRdeZazkXRrtE8tOa0ow" target="_blank">
 								<YouTube style={{color:'red', ...ICON_SIZE}} />
 							</a>
 						</div>
 					</div>
+						<p>
+							<Email className='me-2' />All other questions can be sent to <a href='mailto:askjake331@gmail.com'>askjake331@gmail.com</a>
+						</p>
 				</RightBioInfo>
 			</BioInfo>
-			<BioVideo>video</BioVideo>
 		</Container>
 	)
 }
